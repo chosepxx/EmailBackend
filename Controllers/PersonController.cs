@@ -28,9 +28,11 @@ namespace apiPersonaNet.Controllers
             
         }
 
-        [HttpGet("index")]
-        public string index(){
-            return "ejecutado correctamente-exito";
+        [HttpGet("/")]
+        public string index()
+        {
+            string info = "Api person online";
+            return info;
         }
     }
 }
