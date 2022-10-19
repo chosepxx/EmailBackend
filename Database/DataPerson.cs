@@ -36,6 +36,30 @@ namespace apiPersonaNet.Database
             return list;
         }
 
+         public List<PersonInfo> Top100List(){
+            var list = new List<PersonInfo>();
+            var conn = new DBConnection();
+            using (var sqlconn = new SqlConnection(conn.getConnection())){
+                sqlconn.Open();
+                Console.WriteLine("Coneccion a base de datos:" + sqlconn.State);
+                SqlCommand cmd = new SqlCommand(Procedures.sp_top100Persons, sqlconn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                using (var res = cmd.ExecuteReader())
+                {
+                    while (res.Read())
+                    {
+                        PersonInfo tmp = new PersonInfo();
+                        tmp.BusinessEntityID = Convert.ToInt32(res["BusinessEntityID"]);
+                        tmp.name = res["FirstName"].ToString();
+                        tmp.lastName = res["LastName"].ToString();
+
+                        list.Add(tmp);
+                    }
+                }
+            }
+            return list;
+        }
+
         //Lista de sales1
 
 

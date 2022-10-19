@@ -3,7 +3,7 @@ using apiPersonaNet.Models;
 
 namespace apiPersonaNet.Services
 {
-    public class PersonServices:IPerson
+    public class PersonServices : IPerson
     {
         public PersonServices(){}
 
@@ -18,5 +18,12 @@ namespace apiPersonaNet.Services
             return dp.auth(auth);
 
         }
+
+        public List<PersonInfo>  getTop100List(){
+            return dp.Top100List();
+        }
+
+        
+
     }
 }

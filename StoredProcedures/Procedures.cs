@@ -7,5 +7,8 @@ namespace apiPersonaNet.StoredProcedures
         public static string auth = "sp_verify_user";
         public static string person_sales_list = "sp_list_of_employees_by_id";
         public static string sales_by_years = "sales_per_year";
-    }
+        public static string sp_top100Persons = "person.sp_PersonList_Top100_jhosep";
+        public static string sp_getPersonEmail = "person.sp_getPersonEmail";
+        public static string sp_crudEmail = "person.sp_crudEmail_jhosep";
+    } 
 }
